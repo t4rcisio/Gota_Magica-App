@@ -7,7 +7,6 @@ class ConstantsURL private constructor() {
         val VIACEP = "https://viacep.com.br/ws/"
     }
 
-
     object EMAIL{
 
         const val MAILBASE = "http://apilayer.net/api/"
