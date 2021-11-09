@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    tools:context=".View.NewUserActivity">
+
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <ImageView
+        android:id="@+id/doneIcon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_logo_gota_magica"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <ScrollView
+        android:id="@+id/scrollBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scrollablePage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Criar nova conta"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                android:textColor="@color/main_green_color"
+                android:textStyle="bold"
+                android:padding="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="Nome:"/>
+            <EditText
+                android:id="@+id/form_guest_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="10dp"
+                android:maxLines="1"
+                android:textColor="@color/hint_color"
+                android:paddingLeft="15dp"
+                android:inputType="text|textNoSuggestions"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_name"/>
+
+
+
+
+            <TextView
+                android:id="@+id/text_age"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="italic"
+                android:textSize="18dp"
+                android:textColor="@color/hint_color"
+                android:text="Data de nascimento:"/>
+            <EditText
+                android:id="@+id/form_guest_age"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/text_age"
+                android:padding="10dp"
+                android:maxLines="1"
+                android:textColorHint="@color/hint_color"
+                android:textColor="@color/hint_color"
+                android:maxLength="10"
+                android:hint="DD/MM/AAAA"
+                android:inputType="number"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_age"/>
+
+
+            <TextView
+                android:id="@+id/text_cpf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_age"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="CPF:"/>
+            <EditText
+                android:id="@+id/form_guest_cpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="10dp"
+                android:maxLines="1"
+                android:inputType="number"
+                android:textColor="@color/hint_color"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_cpf"/>
+
+            <TextView
+                android:id="@+id/cpf_already_exist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_cpf"
+                app:layout_constraintRight_toRightOf="@id/form_guest_cpf"
+                android:layout_marginEnd="10dp"
+                android:textStyle="italic"
+                android:visibility="gone"
+                android:textColor="@color/errorTex"
+                android:textSize="12dp"
+                android:text="CPF já cadastrado"/>
+
+            <TextView
+                android:id="@+id/text_mail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_cpf"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="E-mail:"/>
+
+            <EditText
+                android:id="@+id/form_guest_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="10dp"
+                android:maxLines="1"
+                android:textColor="@color/hint_color"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_mail"/>
+
+            <TextView
+                android:id="@+id/email_already_exist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_mail"
+                app:layout_constraintRight_toRightOf="@id/form_guest_mail"
+                android:layout_marginEnd="10dp"
+                android:textStyle="italic"
+                android:visibility="gone"
+                android:textColor="@color/errorTex"
+                android:textSize="12dp"
+                android:text="Email já cadastrado"/>
+
+            <TextView
+                android:id="@+id/text_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_mail"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="Celular"/>
+
+            <EditText
+                android:id="@+id/form_guest_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="10dp"
+                android:maxLines="1"
+                android:maxLength="15"
+                android:textColor="@color/hint_color"
+                android:textColorHint="#FF808080"
+                android:hint="(DD) XXXXX-XXXX"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_phone"/>
+
+
+            <TextView
+                android:id="@+id/text_Address_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Endereço de cobrança"
+                android:textSize="20dp"
+                android:textColor="@color/main_green_color"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_phone"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/text_zipcode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text_Address_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="CEP:"/>
+
+            <EditText
+                android:id="@+id/form_guest_zipcode"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_zipcode"
+                android:padding="10dp"
+                android:maxLength="8"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textColor="@color/hint_color"
+                android:background="@drawable/input_text_background"/>
+            <TextView
+                android:id="@+id/text_State"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/text_zipcode"
+                android:layout_marginStart="15dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/form_guest_zipcode"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="UF:"/>
+
+            <EditText
+                android:id="@+id/form_guest_State"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="@id/text_State"
+                app:layout_constraintTop_toBottomOf="@id/text_State"
+                android:padding="10dp"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textColor="@color/hint_color"
+                android:background="@drawable/input_text_background"/>
+
+
+
+            <TextView
+                android:id="@+id/text_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_zipcode"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="Cidade:"/>
+
+            <EditText
+                android:id="@+id/form_guest_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="10dp"
+                android:maxLines="1"
+                android:textColor="@color/hint_color"
+                android:inputType="textAutoComplete"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_city"/>
+
+            <TextView
+                android:id="@+id/text_neighborhood"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_city"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="Bairro:"/>
+
+            <EditText
+                android:id="@+id/form_guest_neighborhood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="10dp"
+                android:maxLines="1"
+                android:textColor="@color/hint_color"
+                android:inputType="textAutoComplete"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_neighborhood"/>
+
+
+            <TextView
+                android:id="@+id/text_Address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_neighborhood"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="Endereço:"/>
+            <EditText
+                android:id="@+id/form_guest_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="10dp"
+                android:editable="false"
+                android:maxLines="1"
+                android:textColor="@color/hint_color"
+                android:inputType="textPostalAddress"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_Address"
+                tools:ignore="Deprecated" />
+
+            <TextView
+                android:id="@+id/text_securyty_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Segurança"
+                android:textSize="20dp"
+                android:textColor="@color/main_green_color"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_address"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/text_Password1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text_securyty_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="Senha: (mínimo 8 caracteres)"/>
+            <EditText
+                android:id="@+id/form_guest_password1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="10dp"
+                android:editable="false"
+                android:maxLines="1"
+                android:textColor="@color/hint_color"
+                android:inputType="textPassword"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_Password1"
+                tools:ignore="Deprecated" />
+
+            <ImageView
+                android:id="@+id/pswVisibility"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:layout_constraintTop_toTopOf="@id/form_guest_password1"
+                app:layout_constraintBottom_toBottomOf="@id/form_guest_password1"
+                app:layout_constraintRight_toRightOf="@id/form_guest_password1"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_baseline_visibility_off_24"/>
+
+            <TextView
+                android:id="@+id/text_Password2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_password1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp"
+                android:textStyle="italic"
+                android:textColor="@color/hint_color"
+                android:textSize="18dp"
+                android:text="Repita sua senha:"/>
+            <EditText
+                android:id="@+id/form_guest_password2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="10dp"
+                android:editable="false"
+                android:maxLines="1"
+                android:textColor="@color/hint_color"
+                android:inputType="textPassword"
+                android:background="@drawable/input_text_background"
+                app:layout_constraintTop_toBottomOf="@id/text_Password2"
+                tools:ignore="Deprecated" />
+
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bc"
+                android:text="Salvar"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/form_guest_password2"
+                app:layout_constraintBottom_toBottomOf="@id/scrollablePage"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintLeft_toLeftOf="@id/scrollablePage"
+                app:layout_constraintRight_toRightOf="@id/scrollablePage" />
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
